@@ -17,22 +17,23 @@ const SidebarLogo: React.FC<SidebarLogoProps> = ({
   
   return (
     <div className={cn(
-      "flex items-center px-3 py-6",
+      "flex items-center px-4 py-6",
       !open ? "justify-center" : "justify-between"
     )}>
       {open && (
-        <div>
-          <h1 className="text-2xl font-bold text-sidebar-foreground">{title}</h1>
+        <div className="transition-all duration-200 ease-in-out">
+          <h1 className="text-xl font-bold text-sidebar-foreground">{title}</h1>
           {subtitle && (
-            <p className="text-sm text-sidebar-foreground opacity-70">{subtitle}</p>
+            <p className="text-xs text-sidebar-foreground opacity-70">{subtitle}</p>
           )}
         </div>
       )}
       <button 
         onClick={toggleSidebar}
-        className="p-2 rounded-md hover:bg-sidebar-accent text-sidebar-foreground"
+        className="p-2 rounded-full hover:bg-sidebar-accent text-sidebar-foreground transition-colors duration-200"
+        aria-label={open ? "Réduire le menu" : "Agrandir le menu"}
       >
-        {open ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+        {open ? <ChevronLeft size={18} /> : <ChevronRight size={18} />}
       </button>
     </div>
   );

@@ -1,6 +1,4 @@
 
-// Update SidebarNavLinks to include the new pages
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Calendar, LayoutDashboard, CheckSquare, BarChart2, BookTemplate, Timer } from 'lucide-react';
@@ -8,7 +6,7 @@ import { cn } from '@/lib/utils';
 import { useSidebar } from '@/components/ui/sidebar';
 
 const SidebarNavLinks: React.FC = () => {
-  const { isOpen } = useSidebar();
+  const { open } = useSidebar();
   
   const links = [
     {
@@ -60,7 +58,7 @@ const SidebarNavLinks: React.FC = () => {
           end={link.href === '/'}
         >
           {link.icon}
-          <span className={cn(isOpen ? 'opacity-100' : 'opacity-0 md:opacity-100')}>
+          <span className={cn(open ? 'opacity-100' : 'opacity-0 md:opacity-100')}>
             {link.label}
           </span>
         </NavLink>
